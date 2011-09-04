@@ -4,6 +4,8 @@
 	<groupId>org.agilebackoffice.wafe</groupId>
 	<artifactId>wafe-backend</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
+	
+	<name>Backend for WAFE</name>
 
 
 	<dependencies>
