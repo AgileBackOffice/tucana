@@ -12,32 +12,47 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author kamann
- *
+ * 
  */
 @Service
 @Transactional
 public class ConstellationService {
 
 	@Inject
-	private ConstellationRepository cr;
+	private ConstellationRepository constellationRepository;
+	
+	@Inject
+	private CommentRepository commentRepository;
 
-	protected Constellation persistConstellation(
+	public Constellation persistConstellation(
 			Constellation constellation2Persist) {
-		return cr.persistConstellation(constellation2Persist);
+		return constellationRepository.persistConstellation(constellation2Persist);
 	}
 
 	public List<Constellation> findAllConstellations() {
-		return cr.findAllConstellations();
+		return constellationRepository.findAllConstellations();
 	}
 
 	public Constellation findConstellationByCode(String code) {
-		return cr.findConstellationByCode(code);
+		return constellationRepository.findConstellationByCode(code);
 	}
 
 	public List<Constellation> findAllConstellationByCodeOrName(String code,
 			String name) {
-		return cr
-.findAllConstellationByCodeOrName(code, name);
+		return constellationRepository.findAllConstellationByCodeOrName(code, name);
+	}
+	
+	public List<Comment> findAllCommentsByConstellation(Constellation constellation){
+		return commentRepository.findAllCommentsByConstellation(constellation);
+	}
+	
+	public Comment addCommentToConstellation(Constellation constellation, Comment comment){
+		comment.setConstellation(constellation);
+		return commentRepository.persistComment(comment);
+	}
+	
+	public Comment removeCommentFromConstellation(Comment comment){
+		return commentRepository.removeComment(comment);
 	}
 
 }

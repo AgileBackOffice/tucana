@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.agilebackoffice.wafe</groupId>
+	<artifactId>wafe</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>wafe-backend</module>
+		<module>wafe-importer</module>
+	</modules>
+
+	<issueManagement>
+		<system>PivotalTracker</system>
+		<url>https://www.pivotaltracker.com/projects/362513</url>
+	</issueManagement>
+	<scm>
+		<developerConnection>ssh://git@github.com:thorque/wafe.git</developerConnection>
+		<tag>master</tag>
+		<connection>ssh://git@github.com:thorque/wafe.git</connection>
+		<url>https://thorque@github.com/thorque/wafe.git</url>
+	</scm>
+	<organization>
+		<name>Agile BackOffice</name>
+		<url>http://www.agilebackoffice.org/</url>
+	</organization>
+</project>
