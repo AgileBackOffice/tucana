@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Window" x="48" y="32" width="640" height="480" text="WAFE" measuredWidth="640" measuredHeight="480" verticalScrollbar="true"/>
+  <widgets xsi:type="model:ScratchOut" x="58" y="61" width="605" height="117" measuredWidth="605" measuredHeight="117" annotation="true" alpha="64"/>
+  <widgets xsi:type="model:Label" x="192" y="97" text="Constellation Catalogue" measuredWidth="376" measuredHeight="46">
+    <font size="32"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" x="296" y="200" width="113" text="Search" measuredWidth="113" measuredHeight="24"/>
+  <widgets xsi:type="model:Table" x="157" y="256" text="Name,Genitive Name, Code,(align:center). Actions&#xA;Andromeda,Andromedae,AND,[Details] [Starcard] [Comments]&#xA;Orion,Orionis,ORI,[Details] [Starcard] [Comments]&#xA;Ursa Major,Ursa Majoris,UMa,[Details] [Starcard] [Comments]&#xA;Draco,Draconis,DRA,[Details] [Starcard] [Comments]" measuredWidth="411" measuredHeight="114" alternative="#eeeeee">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font/>
+</model:Screen>

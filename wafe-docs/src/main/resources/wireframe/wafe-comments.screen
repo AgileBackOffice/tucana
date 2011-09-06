@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Window" x="48" y="32" width="640" height="480" text="WAFE" measuredWidth="640" measuredHeight="480" verticalScrollbar="true"/>
+  <widgets xsi:type="model:ScratchOut" x="58" y="61" width="605" height="117" measuredWidth="605" measuredHeight="117" annotation="true" alpha="64"/>
+  <widgets xsi:type="model:Label" x="192" y="97" text="Constellation Catalogue" measuredWidth="376" measuredHeight="46">
+    <font size="32"/>
+  </widgets>
+  <widgets xsi:type="model:SearchField" x="296" y="200" width="113" text="Search" measuredWidth="113" measuredHeight="24"/>
+  <widgets xsi:type="model:Table" x="157" y="256" text="Name,Genitive Name, Code,(align:center). Actions&#xA;Andromeda,Andromedae,AND,[Details] [Starcard] [Comments]&#xA;Orion,Orionis,ORI,[Details] [Starcard] [Comments]&#xA;Ursa Major,Ursa Majoris,UMa,[Details] [Starcard] [Comments]&#xA;Draco,Draconis,DRA,[Details] [Starcard] [Comments]" measuredWidth="411" measuredHeight="114" alternative="#eeeeee">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Panel" x="168" y="186" width="385" height="287" measuredWidth="385" measuredHeight="287"/>
+  <widgets xsi:type="model:Label" x="186" y="209" width="183" text="Details for *Andromeda*" measuredWidth="183" measuredHeight="24" textAlignment="Center" icon="image (medium)">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Placeholder" x="432" y="275" width="88" height="129" text="Starcard" measuredWidth="88" measuredHeight="129"/>
+  <widgets xsi:type="model:Image" x="301" y="313"/>
+  <widgets xsi:type="model:VSplitter" x="398" y="259" height="185" measuredWidth="11" measuredHeight="185"/>
+  <widgets xsi:type="model:Table" x="186" y="272" text="&#xA;Name, Anromeda&#xA;Code, AND&#xA;Genitive Name, Andromedae&#xA;Author, Ptolemäus&#xA;...,..." measuredWidth="193" measuredHeight="136" alternative="#eeeeee">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Callout" x="488" y="208" text="1" measuredWidth="26" measuredHeight="26" annotation="true">
+    <font bold="true"/>
+  </widgets>
+  <widgets xsi:type="model:Note" x="519" y="208" text="Panel will shown after &#xA;click on Detail in the &#xA;main window" measuredWidth="152" measuredHeight="58" annotation="true">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Button" x="519" y="456" text="Close" measuredWidth="55" measuredHeight="26">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:ButtonBar" x="157" y="455" text="Data, Comments" measuredWidth="140" measuredHeight="28" selection="0">
+    <font/>
+    <items x="0" y="0" width="50" height="28" text="Data"/>
+    <items x="50" y="0" width="90" height="28" text="Comments"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font/>
+</model:Screen>
