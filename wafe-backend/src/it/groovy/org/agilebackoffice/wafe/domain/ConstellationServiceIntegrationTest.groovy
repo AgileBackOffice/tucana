@@ -30,13 +30,13 @@ class ConstellationServiceIntegrationTest {
 	}
 
 	@Test
-	final void "test find all constellations by parts of his name"(){
-		Assert.assertEquals(2, constellationService.findAllConstellationByCodeOrName(null, "urs").size())
+	final void "test find all constellations by parts of his name or code"(){
+		Assert.assertEquals(2, constellationService.findAllConstellationByCodeOrName("urs").size())
 	}
 
 	@Test
 	final void "test find all constellations by parts of his code"(){
-		Assert.assertEquals(5, constellationService.findAllConstellationByCodeOrName("ca", null).size())
+		Assert.assertEquals(9, constellationService.findAllConstellationByCodeOrName("ca").size())
 	}
 	
 	@Test

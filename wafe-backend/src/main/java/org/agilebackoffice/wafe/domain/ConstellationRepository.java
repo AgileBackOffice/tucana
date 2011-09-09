@@ -45,12 +45,10 @@ public class ConstellationRepository {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Constellation> findAllConstellationByCodeOrName(String code,
-			String name) {
+	public List<Constellation> findAllConstellationByCodeOrName(String search) {
 		Query query = em
-				.createQuery("from Constellation c where c.code like :code OR c.name like :name");
-		query.setParameter("code", code + "%");
-		query.setParameter("name", name + "%");
+				.createQuery("from Constellation c where c.code like :search OR c.name like :search");
+		query.setParameter("search", search + "%");
 
 		return query.getResultList();
 	}

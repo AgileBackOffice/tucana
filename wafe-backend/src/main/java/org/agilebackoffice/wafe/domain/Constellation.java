@@ -13,7 +13,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Constellation {
+public class Constellation{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -32,188 +32,176 @@ public class Constellation {
 	private int numberOfStarsGreater4M;
 	private String starCardRef;
 
-	/**
-	 * @return the name
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getName()
 	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param name
-	 *            the name to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setName(java.lang.String)
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the code
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getCode()
 	 */
 	public String getCode() {
 		return code;
 	}
 
-	/**
-	 * @param code
-	 *            the code to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setCode(java.lang.String)
 	 */
 	public void setCode(String code) {
 		this.code = code;
 	}
 
-	/**
-	 * @return the germanName
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGermanName()
 	 */
 	public String getGermanName() {
 		return germanName;
 	}
 
-	/**
-	 * @param germanName
-	 *            the germanName to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGermanName(java.lang.String)
 	 */
 	public void setGermanName(String germanName) {
 		this.germanName = germanName;
 	}
 
-	/**
-	 * @return the genitiveName
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGenitiveName()
 	 */
 	public String getGenitiveName() {
 		return genitiveName;
 	}
 
-	/**
-	 * @param genitiveName
-	 *            the genitiveName to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGenitiveName(java.lang.String)
 	 */
 	public void setGenitiveName(String genitiveName) {
 		this.genitiveName = genitiveName;
 	}
 
-	/**
-	 * @return the hemisphere
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getHemisphere()
 	 */
 	public String getHemisphere() {
 		return hemisphere;
 	}
 
-	/**
-	 * @param hemisphere
-	 *            the hemisphere to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setHemisphere(java.lang.String)
 	 */
 	public void setHemisphere(String hemisphere) {
 		this.hemisphere = hemisphere;
 	}
 
-	/**
-	 * @return the author
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getAuthor()
 	 */
 	public String getAuthor() {
 		return author;
 	}
 
-	/**
-	 * @param author
-	 *            the author to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setAuthor(java.lang.String)
 	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 
-	/**
-	 * @return the authorYear
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getAuthorYear()
 	 */
 	public int getAuthorYear() {
 		return authorYear;
 	}
 
-	/**
-	 * @param authorYear
-	 *            the authorYear to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setAuthorYear(int)
 	 */
 	public void setAuthorYear(int authorYear) {
 		this.authorYear = authorYear;
 	}
 
-	/**
-	 * @return the area
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getArea()
 	 */
 	public double getArea() {
 		return area;
 	}
 
-	/**
-	 * @param area
-	 *            the area to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setArea(double)
 	 */
 	public void setArea(double area) {
 		this.area = area;
 	}
 
-	/**
-	 * @return the visibility
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getVisibilityArea()
 	 */
 	public String getVisibilityArea() {
 		return visibilityArea;
 	}
 
-	/**
-	 * @param visibility
-	 *            the visibility to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setVisibilityArea(java.lang.String)
 	 */
 	public void setVisibilityArea(String visibilityArea) {
 		this.visibilityArea = visibilityArea;
 	}
 
-	/**
-	 * @return the numberOfStarsGreater3M
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getNumberOfStarsGreater3M()
 	 */
 	public int getNumberOfStarsGreater3M() {
 		return numberOfStarsGreater3M;
 	}
 
-	/**
-	 * @param numberOfStarsGreater3M
-	 *            the numberOfStarsGreater3M to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setNumberOfStarsGreater3M(int)
 	 */
 	public void setNumberOfStarsGreater3M(int numberOfStarsGreater3M) {
 		this.numberOfStarsGreater3M = numberOfStarsGreater3M;
 	}
 
-	/**
-	 * @return the numberOfStarsGreater4M
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getNumberOfStarsGreater4M()
 	 */
 	public int getNumberOfStarsGreater4M() {
 		return numberOfStarsGreater4M;
 	}
 
-	/**
-	 * @param numberOfStarsGreater4M
-	 *            the numberOfStarsGreater4M to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setNumberOfStarsGreater4M(int)
 	 */
 	public void setNumberOfStarsGreater4M(int numberOfStarsGreater4M) {
 		this.numberOfStarsGreater4M = numberOfStarsGreater4M;
 	}
 
-	/**
-	 * @return the starCardRef
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getStarCardRef()
 	 */
 	public String getStarCardRef() {
 		return starCardRef;
 	}
 
-	/**
-	 * @return the greatestMagnitude
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGreatestMagnitude()
 	 */
 	public double getGreatestMagnitude() {
 		return greatestMagnitude;
 	}
 
-	/**
-	 * @param greatestMagnitude
-	 *            the greatestMagnitude to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGreatestMagnitude(double)
 	 */
 	public void setGreatestMagnitude(double greatestMagnitude) {
 		this.greatestMagnitude = greatestMagnitude;
@@ -223,6 +211,9 @@ public class Constellation {
 	 * (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#toString()
+	 */
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#toString()
 	 */
 	@Override
 	public String toString() {
@@ -249,24 +240,22 @@ public class Constellation {
 				+ "]";
 	}
 
-	/**
-	 * @param starCardRef
-	 *            the starCardRef to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setStarCardRef(java.lang.String)
 	 */
 	public void setStarCardRef(String starCardRef) {
 		this.starCardRef = starCardRef;
 	}
 
-	/**
-	 * @return the id
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#getId()
 	 */
 	public Long getId() {
 		return id;
 	}
 
-	/**
-	 * @param id
-	 *            the id to set
+	/* (non-Javadoc)
+	 * @see org.agilebackoffice.wafe.domain.IConstellation#setId(java.lang.Long)
 	 */
 	public void setId(Long id) {
 		this.id = id;

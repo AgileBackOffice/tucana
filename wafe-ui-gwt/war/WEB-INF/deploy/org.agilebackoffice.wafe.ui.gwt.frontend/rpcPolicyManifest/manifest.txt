@@ -1,0 +1,2 @@
+# Module org.agilebackoffice.wafe.ui.gwt.frontend
+# RPC service class, partial path of RPC policy file
