@@ -54,7 +54,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<runTarget>wafe/wafe.html</runTarget>
+					<runTarget>wafe.html</runTarget>
 				</configuration>
 			</plugin>
 			<plugin>

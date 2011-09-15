@@ -56,7 +56,8 @@ class ConstellationImporter {
 				constellation.numberOfStarsGreater3M = cells[10].text() as int
 				constellation.numberOfStarsGreater4M = cells[11].text() as int
 				constellation.starCardRef = retrieveStarCardRef(cells[12].a.@href.text())
-
+				constellation.starCardData = new URL(retrieveStarCardRef(cells[12].a.@href.text())).bytes
+				
 				println constellation
 				service.persistConstellation constellation
 			}	else{

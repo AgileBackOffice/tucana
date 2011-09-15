@@ -3,17 +3,20 @@
  */
 package org.agilebackoffice.wafe.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  * @author kamann
  *
  */
 @Entity
-public class Constellation{
+public class Constellation implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -31,6 +34,8 @@ public class Constellation{
 	private int numberOfStarsGreater3M;
 	private int numberOfStarsGreater4M;
 	private String starCardRef;
+	@Lob
+	private byte[] starCardData;
 
 	/* (non-Javadoc)
 	 * @see org.agilebackoffice.wafe.domain.IConstellation#getName()
@@ -245,6 +250,20 @@ public class Constellation{
 	 */
 	public void setStarCardRef(String starCardRef) {
 		this.starCardRef = starCardRef;
+	}
+
+	/**
+	 * @return the starCardData
+	 */
+	public byte[] getStarCardData() {
+		return starCardData;
+	}
+
+	/**
+	 * @param starCardData the starCardData to set
+	 */
+	public void setStarCardData(byte[] starCardData) {
+		this.starCardData = starCardData;
 	}
 
 	/* (non-Javadoc)

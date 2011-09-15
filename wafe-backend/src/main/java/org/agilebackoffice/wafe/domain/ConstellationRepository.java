@@ -48,7 +48,7 @@ public class ConstellationRepository {
 	public List<Constellation> findAllConstellationByCodeOrName(String search) {
 		Query query = em
 				.createQuery("from Constellation c where c.code like :search OR c.name like :search");
-		query.setParameter("search", search + "%");
+		query.setParameter("search", "%" + search + "%");
 
 		return query.getResultList();
 	}
