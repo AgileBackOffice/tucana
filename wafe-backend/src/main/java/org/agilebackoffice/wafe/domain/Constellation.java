@@ -11,21 +11,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
 /**
  * @author kamann
  *
  */
 @Entity
+@Indexed
 public class Constellation implements Serializable{
 	@Id
+	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String name;
+	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String code;
+	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String germanName;
+	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String genitiveName;
 	private String hemisphere;
+	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String author;
 	private int authorYear;
 	private double area;

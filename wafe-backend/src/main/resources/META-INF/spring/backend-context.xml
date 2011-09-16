@@ -6,8 +6,8 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-	<context:property-placeholder location="classpath:/db.properties"/>
-
+	<context:property-placeholder location="classpath:/db.properties" />
+ 
 	<context:component-scan base-package="org.agilebackoffice.wafe.domain" />
 	<context:annotation-config />
 	<bean id="dataSource"
@@ -29,11 +29,10 @@
 		<property name="jpaPropertyMap">
 			<map>
 				<entry key="hibernate.hbm2ddl.auto" value="${db.hbmddl_auto}" />
+				<entry key="hibernate.search.default.indexBase" value="${wafe.lucene.index}"/>
 			</map>
 		</property>
 	</bean>
-
-	
 
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
 		p:entityManagerFactory-ref="entityManagerFactory" />

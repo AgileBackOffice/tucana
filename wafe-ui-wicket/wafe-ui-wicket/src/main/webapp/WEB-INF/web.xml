@@ -21,6 +21,11 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/wafe-servlet.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>wafe_lucene_index</param-name>
+        <param-value>/tmp/lucene/index</param-value>
+    </context-param>
+    
     
     <listener>
         <listener-class>

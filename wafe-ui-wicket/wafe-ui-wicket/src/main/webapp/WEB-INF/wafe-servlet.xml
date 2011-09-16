@@ -9,6 +9,8 @@
 
 	<import resource="classpath:/META-INF/spring/*-context.xml" />
 
+
+
 	<context:component-scan base-package="org.agilebackoffice.wafe" />
 
 	<bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
@@ -19,7 +21,8 @@
 		p:contentType="application/xml">
 		<constructor-arg ref="xstreamMarshaller" />
 	</bean>
-	<bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+	<bean id="jsonView"
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
 	<bean
 		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
@@ -30,8 +33,8 @@
 		</property>
 		<property name="defaultViews">
 			<list>
-				<ref bean="jsonView"/>
-				<ref bean="xmlView"/>
+				<ref bean="jsonView" />
+				<ref bean="xmlView" />
 			</list>
 		</property>
 		<property name="ignoreAcceptHeader" value="true" />
