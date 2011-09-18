@@ -6,6 +6,7 @@ package org.agilebackoffice.wafe.importer
 import groovy.util.slurpersupport.NodeChild
 
 import org.agilebackoffice.wafe.domain.Constellation
+import org.agilebackoffice.wafe.domain.ConstellationName;
 import org.agilebackoffice.wafe.domain.ConstellationService
 import org.htmlcleaner.HtmlCleaner
 import org.htmlcleaner.SimpleXmlSerializer
@@ -17,8 +18,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext
  *
  */
 class ConstellationImporter {
+	private static def dataWithNamedConstellations
 
 	public static void main(def args){
+		
+//		println getAllNamesForConstellation ("gem")
+//		return
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/backend-context.xml")
 
@@ -43,7 +48,6 @@ class ConstellationImporter {
 			if (!row.@style.text()){
 				def cells = row.td
 				Constellation constellation = new Constellation()
-				constellation.germanName = cells[0]
 				constellation.name = cells[1]
 				constellation.genitiveName = cells[2]
 				constellation.code = cells[3].text().toLowerCase()
@@ -55,8 +59,14 @@ class ConstellationImporter {
 				constellation.greatestMagnitude = toDouble(cells[9].text())
 				constellation.numberOfStarsGreater3M = cells[10].text() as int
 				constellation.numberOfStarsGreater4M = cells[11].text() as int
-				constellation.starCardRef = retrieveStarCardRef(cells[12].a.@href.text())
 				constellation.starCardData = new URL(retrieveStarCardRef(cells[12].a.@href.text())).bytes
+				
+				Map names = getAllNamesForConstellation (constellation.code)
+				List cn = []
+				names.each{String key, String value ->
+						cn << new ConstellationName(name: value, langCode: key)
+				}
+				constellation.names = cn;
 				
 				println constellation
 				service.persistConstellation constellation
@@ -77,6 +87,23 @@ class ConstellationImporter {
 		def url = "http://de.wikipedia.org$wikipediaRef"
 		def page = getCleanedHtml(url)
 		def pngUrl = page.body.'**'.find{ it.name() == "div" && it.@class.text().contains('fullMedia')}.a.@href.text()
+	}
+	
+	private static Map getAllNamesForConstellation(String code){
+		if (!dataWithNamedConstellations){
+			def page = getCleanedHtml("http://de.wikipedia.org/wiki/Liste_der_Sternbilder_in_verschiedenen_Sprachen")
+			dataWithNamedConstellations = page.body.'**'.find { it.name() == "table" && it.@class.text().contains("wikitable sortable") }.tbody.tr
+		}
+
+		def row = dataWithNamedConstellations.'**'.find { it.name = "td" && it.text().toLowerCase() == "$code" }.parent()
+		Map names = [:]
+		names.de = row.td[1].text()
+		names.en = row.td[5].text()
+		names.su = row.td[6].text()
+		names.fr = row.td[7].text()
+		names.'it' = row.td[8].text()
+		names.es = row.td[12].text()
+		return names
 	}
 
 	private static NodeChild getCleanedHtml(String url){

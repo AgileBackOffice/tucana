@@ -3,7 +3,10 @@
  */
 package org.agilebackoffice.wafe.domain;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,6 +15,8 @@ import javax.persistence.Query;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
+import org.apache.lucene.search.Sort;
+import org.apache.lucene.search.SortField;
 import org.apache.lucene.search.WildcardQuery;
 import org.hibernate.search.jpa.FullTextQuery;
 import org.hibernate.search.jpa.Search;
@@ -60,7 +65,15 @@ public class ConstellationRepository {
 		bq.add(new WildcardQuery(new Term("genetiveName", search)), BooleanClause.Occur.SHOULD);
 
 		FullTextQuery ftQuery = Search.getFullTextEntityManager(em).createFullTextQuery(bq, Constellation.class);
-		return ftQuery.getResultList();
+		ftQuery.setSort(new Sort(new SortField("code", SortField.STRING)));
+		
+		List<Constellation> result = ftQuery.getResultList();
+		Map< String, Constellation> groupedResult = new TreeMap<String, Constellation>();
+		for (Constellation constellation : result) {
+			groupedResult.put(constellation.getCode(), constellation);
+		}
+		
+		return new ArrayList<Constellation>(groupedResult.values());
 	}
 
 }

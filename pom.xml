@@ -8,7 +8,7 @@
 	<modules>
 		<module>wafe-backend</module>
 		<module>wafe-importer</module>
-		<module>wafe-web</module>
+		<module>wafe-ui-wicket</module>
 	</modules>
 
 	<issueManagement>

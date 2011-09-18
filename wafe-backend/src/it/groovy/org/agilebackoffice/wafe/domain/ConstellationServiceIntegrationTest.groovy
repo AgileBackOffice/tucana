@@ -36,6 +36,10 @@ class ConstellationServiceIntegrationTest {
 
 	@Test
 	final void "test find all constellations by parts of his code"(){
+		constellationService.findAllConstellationByCodeOrName("ca").each { 
+			println it.name	
+		 }
+		
 		Assert.assertEquals(11, constellationService.findAllConstellationByCodeOrName("ca").size())
 	}
 	

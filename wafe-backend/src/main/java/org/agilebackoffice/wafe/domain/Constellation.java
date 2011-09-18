@@ -4,12 +4,17 @@
 package org.agilebackoffice.wafe.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
@@ -24,6 +29,8 @@ import org.hibernate.search.annotations.Store;
 @Entity
 @Indexed
 public class Constellation implements Serializable{
+	private static final long serialVersionUID = 5723129346307261594L;
+
 	@Id
 	@DocumentId
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,8 +40,6 @@ public class Constellation implements Serializable{
 	private String name;
 	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String code;
-	@Field(index = Index.TOKENIZED, store = Store.YES)
-	private String germanName;
 	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String genitiveName;
 	private String hemisphere;
@@ -46,9 +51,11 @@ public class Constellation implements Serializable{
 	private String visibilityArea;
 	private int numberOfStarsGreater3M;
 	private int numberOfStarsGreater4M;
-	private String starCardRef;
 	@Lob
 	private byte[] starCardData;
+	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<ConstellationName> names = new ArrayList<ConstellationName>();
 
 	/* (non-Javadoc)
 	 * @see org.agilebackoffice.wafe.domain.IConstellation#getName()
@@ -76,20 +83,6 @@ public class Constellation implements Serializable{
 	 */
 	public void setCode(String code) {
 		this.code = code;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGermanName()
-	 */
-	public String getGermanName() {
-		return germanName;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGermanName(java.lang.String)
-	 */
-	public void setGermanName(String germanName) {
-		this.germanName = germanName;
 	}
 
 	/* (non-Javadoc)
@@ -205,13 +198,6 @@ public class Constellation implements Serializable{
 	}
 
 	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getStarCardRef()
-	 */
-	public String getStarCardRef() {
-		return starCardRef;
-	}
-
-	/* (non-Javadoc)
 	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGreatestMagnitude()
 	 */
 	public double getGreatestMagnitude() {
@@ -225,44 +211,19 @@ public class Constellation implements Serializable{
 		this.greatestMagnitude = greatestMagnitude;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#toString()
+	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Constellation ["
-				+ (name != null ? "name=" + name + ", " : "")
-				+ (code != null ? "code=" + code + ", " : "")
-				+ (germanName != null ? "germanName=" + germanName + ", " : "")
-				+ (genitiveName != null ? "genitiveName=" + genitiveName + ", "
-						: "")
-				+ (hemisphere != null ? "hemisphere=" + hemisphere + ", " : "")
-				+ (author != null ? "author=" + author + ", " : "")
-				+ "authorYear="
-				+ authorYear
-				+ ", area="
-				+ area
-				+ ", greatestMagnitude="
-				+ greatestMagnitude
-				+ ", "
-				+ (visibilityArea != null ? "visibilityArea=" + visibilityArea
-						+ ", " : "") + "numberOfStarsGreater3M="
-				+ numberOfStarsGreater3M + ", numberOfStarsGreater4M="
-				+ numberOfStarsGreater4M + ", "
-				+ (starCardRef != null ? "starCardRef=" + starCardRef : "")
-				+ "]";
-	}
-
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setStarCardRef(java.lang.String)
-	 */
-	public void setStarCardRef(String starCardRef) {
-		this.starCardRef = starCardRef;
+		return "Constellation [id=" + id + ", name=" + name + ", code=" + code
+				+ ", genitiveName=" + genitiveName + ", hemisphere="
+				+ hemisphere + ", author=" + author + ", authorYear="
+				+ authorYear + ", area=" + area + ", greatestMagnitude="
+				+ greatestMagnitude + ", visibilityArea=" + visibilityArea
+				+ ", numberOfStarsGreater3M=" + numberOfStarsGreater3M
+				+ ", numberOfStarsGreater4M=" + numberOfStarsGreater4M
+				+ ", names=" + names + "]";
 	}
 
 	/**
@@ -291,5 +252,19 @@ public class Constellation implements Serializable{
 	 */
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	/**
+	 * @return the names
+	 */
+	public List<ConstellationName> getNames() {
+		return names;
+	}
+
+	/**
+	 * @param names the names to set
+	 */
+	public void setNames(List<ConstellationName> names) {
+		this.names = names;
 	}
 }
