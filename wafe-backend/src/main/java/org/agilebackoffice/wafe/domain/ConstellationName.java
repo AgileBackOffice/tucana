@@ -3,6 +3,8 @@
  */
 package org.agilebackoffice.wafe.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,15 +22,18 @@ import org.hibernate.search.annotations.Store;
  */
 @Entity
 @Indexed
-public class ConstellationName {
+public class ConstellationName implements Serializable {
+	private static final long serialVersionUID = -8582080478309151969L;
+
 	@Id
 	@DocumentId
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Field(index = Index.TOKENIZED, store = Store.YES)
 	private String name;
 	private String langCode;
+	private String code;
+
 
 	/**
 	 * @return the id
@@ -75,4 +80,17 @@ public class ConstellationName {
 		this.langCode = langCode;
 	}
 
+	/**
+	 * @return the code
+	 */
+	public String getCode() {
+		return code;
+	}
+
+	/**
+	 * @param code the code to set
+	 */
+	public void setCode(String code) {
+		this.code = code;
+	}
 }

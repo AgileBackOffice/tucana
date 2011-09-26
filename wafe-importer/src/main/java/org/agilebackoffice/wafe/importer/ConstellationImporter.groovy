@@ -61,15 +61,18 @@ class ConstellationImporter {
 				constellation.numberOfStarsGreater4M = cells[11].text() as int
 				constellation.starCardData = new URL(retrieveStarCardRef(cells[12].a.@href.text())).bytes
 				
+				
+				
 				Map names = getAllNamesForConstellation (constellation.code)
 				List cn = []
 				names.each{String key, String value ->
-						cn << new ConstellationName(name: value, langCode: key)
+						cn << new ConstellationName(name: value, langCode: key, code: constellation.code)
 				}
 				constellation.names = cn;
 				
 				println constellation
 				service.persistConstellation constellation
+				
 			}	else{
 				println "a"
 			}
@@ -77,6 +80,9 @@ class ConstellationImporter {
 
 		println service.findAllConstellations().size()
 		println service.findConstellationByCode("ori").name
+		
+//		Thread.sleep(5000)
+//		((ClassPathXmlApplicationContext)applicationContext).close()
 	}
 
 	private static toDouble(String value){
@@ -95,6 +101,7 @@ class ConstellationImporter {
 			dataWithNamedConstellations = page.body.'**'.find { it.name() == "table" && it.@class.text().contains("wikitable sortable") }.tbody.tr
 		}
 
+		println code
 		def row = dataWithNamedConstellations.'**'.find { it.name = "td" && it.text().toLowerCase() == "$code" }.parent()
 		Map names = [:]
 		names.de = row.td[1].text()

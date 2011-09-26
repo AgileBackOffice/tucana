@@ -4,6 +4,7 @@
 package org.agilebackoffice.wafe.ui.wicket;
 
 import org.agilebackoffice.wafe.domain.Constellation;
+import org.agilebackoffice.wafe.domain.ConstellationName;
 import org.agilebackoffice.wafe.domain.ConstellationService;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.image.Image;
@@ -43,6 +44,7 @@ public class ConstellationDetails extends BasePage {
 	private void initComponents(){
 		add(getDetailLabel());
 		addDataLabels();
+		addNameLabels();
 		addStarCardImage();
 	}
 	
@@ -82,6 +84,13 @@ public class ConstellationDetails extends BasePage {
 		
 		add(new Label("c_details_stars4m_label", "# Stars > 4m"));
 		add(new Label("c_details_stars4m_text", constellation.getNumberOfStarsGreater4M()+""));
+	}
+	
+	private void addNameLabels(){
+		for (ConstellationName cn : constellation.getNames()) {
+			add(new Label("c_names_"+cn.getLangCode()+"_label", cn.getLangCode()));
+			add(new Label("c_names_"+cn.getLangCode()+"_text", cn.getName()));
+		}
 	}
 	
 	private void addStarCardImage(){		

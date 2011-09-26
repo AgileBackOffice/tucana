@@ -30,18 +30,44 @@ class ConstellationServiceIntegrationTest {
 	}
 
 	@Test
-	final void "test find all constellations by parts of his name or code"(){
-		Assert.assertEquals(2, constellationService.findAllConstellationByCodeOrName("ori").size())
+	final void "test find all constellations by fulltextsearch"(){
+		def result = constellationService.findAllConstellationByCodeOrName("lacerta")
+		Assert.assertEquals(1, result.size())
+		Assert.assertEquals("Lacerta", result.get(0).name)
+	}
+	
+	@Test
+	final void "test fulltextsearch with no results"(){
+		Assert.assertEquals(0, constellationService.findAllConstellationByCodeOrName("xbcbcb").size())
+	}
+	
+	@Test
+	final void "test fulltextsearch with star placeholder"(){
+		Assert.assertEquals(10, constellationService.findAllConstellationByCodeOrName("*ori*").size())
 	}
 
 	@Test
-	final void "test find all constellations by parts of his code"(){
-		constellationService.findAllConstellationByCodeOrName("ca").each { 
-			println it.name	
-		 }
-		
-		Assert.assertEquals(11, constellationService.findAllConstellationByCodeOrName("ca").size())
+	final void "test fulltextsearch with multiple search items part of fullname"(){
+		def result = constellationService.findAllConstellationByCodeOrName("ursa pisces")
+		Assert.assertEquals(3, result.size())
 	}
+	
+	@Test
+	final void "test fulltextsearch with foreign name"(){
+		def result = constellationService.findAllConstellationByCodeOrName("fische")
+		Assert.assertEquals(1, result.size())
+	}
+	
+	@Test
+	final void "test fulltextsearch with multiple searchwords"(){
+		Assert.assertEquals(2, constellationService.findAllConstellationByCodeOrName("ori umi").size())
+	}
+	
+	@Test
+	final void "test fulltextsearch with phrase"(){
+		Assert.assertEquals(1, constellationService.findAllConstellationByCodeOrName("\"Ursa Major\"").size())
+	}
+
 	
 	@Test
 	final void "add a new comment to the constellation"(){
@@ -51,7 +77,7 @@ class ConstellationServiceIntegrationTest {
 		10.times{
 			def comment = new Comment(comment: "comment$it", email: "email$it", name: "name$it")
 			comment = constellationService.addCommentToConstellation(orion, comment);
-			Assert.assertNotNull(comment.id)
+			Assert.assertNotNull(comment.id)  
 		}
 
 		Assert.assertEquals(10,constellationService.findAllCommentsByConstellation(orion).size())

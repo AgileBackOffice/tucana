@@ -5,7 +5,6 @@ package org.agilebackoffice.wafe.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,11 +14,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
+import javax.print.DocFlavor.BYTE_ARRAY;
 
 import org.hibernate.search.annotations.DocumentId;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Store;
 
 /**
@@ -55,158 +56,127 @@ public class Constellation implements Serializable{
 	private byte[] starCardData;
 	
 	@OneToMany(cascade=CascadeType.ALL)
+	@IndexedEmbedded
 	private List<ConstellationName> names = new ArrayList<ConstellationName>();
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getName()
+	/**
+	 * @return The latin name of the constellation. All names for a foreign language you'll find in {@link ConstellationName}
 	 */
 	public String getName() {
 		return name;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setName(java.lang.String)
-	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getCode()
+	/**
+	 * @return the official 3-letter code of the IAU for this constellation
 	 */
 	public String getCode() {
 		return code;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setCode(java.lang.String)
-	 */
 	public void setCode(String code) {
 		this.code = code;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGenitiveName()
+	/**
+	 * @return the latin genitive name of this constellation you need for names of stars of this constellation
 	 */
 	public String getGenitiveName() {
 		return genitiveName;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGenitiveName(java.lang.String)
-	 */
 	public void setGenitiveName(String genitiveName) {
 		this.genitiveName = genitiveName;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getHemisphere()
+	/**
+	 * @return Is the constellation visible at the northern 'N', southern 'S' or both 'N S' hemisphere?
 	 */
 	public String getHemisphere() {
 		return hemisphere;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setHemisphere(java.lang.String)
-	 */
 	public void setHemisphere(String hemisphere) {
 		this.hemisphere = hemisphere;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getAuthor()
+	/**
+	 * @return The first person who writes about this constellation
 	 */
 	public String getAuthor() {
 		return author;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setAuthor(java.lang.String)
-	 */
 	public void setAuthor(String author) {
 		this.author = author;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getAuthorYear()
+	/**
+	 * @return The year the first notice the author has done
 	 */
 	public int getAuthorYear() {
 		return authorYear;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setAuthorYear(int)
-	 */
 	public void setAuthorYear(int authorYear) {
 		this.authorYear = authorYear;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getArea()
+	/**
+	 * @return The area of the sky this constellation have in (°)²
 	 */
 	public double getArea() {
 		return area;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setArea(double)
-	 */
 	public void setArea(double area) {
 		this.area = area;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getVisibilityArea()
+	/**
+	 * Not used at this time
+	 * @return nothing
 	 */
 	public String getVisibilityArea() {
 		return visibilityArea;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setVisibilityArea(java.lang.String)
-	 */
 	public void setVisibilityArea(String visibilityArea) {
 		this.visibilityArea = visibilityArea;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getNumberOfStarsGreater3M()
+	/**
+	 * @return The # of stars greater 3m containing in this constellation
 	 */
 	public int getNumberOfStarsGreater3M() {
 		return numberOfStarsGreater3M;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setNumberOfStarsGreater3M(int)
-	 */
 	public void setNumberOfStarsGreater3M(int numberOfStarsGreater3M) {
 		this.numberOfStarsGreater3M = numberOfStarsGreater3M;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getNumberOfStarsGreater4M()
+	/**
+	 * @return The # of stars greater 4m containing in this constellation
 	 */
 	public int getNumberOfStarsGreater4M() {
 		return numberOfStarsGreater4M;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setNumberOfStarsGreater4M(int)
-	 */
 	public void setNumberOfStarsGreater4M(int numberOfStarsGreater4M) {
 		this.numberOfStarsGreater4M = numberOfStarsGreater4M;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getGreatestMagnitude()
+	/**
+	 * @return not used at this time
 	 */
 	public double getGreatestMagnitude() {
 		return greatestMagnitude;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setGreatestMagnitude(double)
-	 */
 	public void setGreatestMagnitude(double greatestMagnitude) {
 		this.greatestMagnitude = greatestMagnitude;
 	}
@@ -227,43 +197,31 @@ public class Constellation implements Serializable{
 	}
 
 	/**
-	 * @return the starCardData
+	 * @return the starCardData as {@link byte[]}
 	 */
 	public byte[] getStarCardData() {
 		return starCardData;
 	}
 
-	/**
-	 * @param starCardData the starCardData to set
-	 */
 	public void setStarCardData(byte[] starCardData) {
 		this.starCardData = starCardData;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#getId()
-	 */
 	public Long getId() {
 		return id;
 	}
 
-	/* (non-Javadoc)
-	 * @see org.agilebackoffice.wafe.domain.IConstellation#setId(java.lang.Long)
-	 */
 	public void setId(Long id) {
 		this.id = id;
 	}
 
 	/**
-	 * @return the names
+	 * @return All names in foreign languages for this constellation
 	 */
 	public List<ConstellationName> getNames() {
 		return names;
 	}
 
-	/**
-	 * @param names the names to set
-	 */
 	public void setNames(List<ConstellationName> names) {
 		this.names = names;
 	}
