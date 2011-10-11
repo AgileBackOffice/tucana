@@ -8,6 +8,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.agilebackoffice.wafe.domain.Constellation;
+import org.agilebackoffice.wafe.domain.ConstellationName;
 import org.agilebackoffice.wafe.domain.ConstellationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -36,8 +37,12 @@ public class ConstellationServiceController {
 
 	@RequestMapping("/constellation_by_code/{code}")
 	public ModelAndView findConstellationByCode(@PathVariable String code) {
+		Constellation constellation = service.findConstellationByCode(code);
+		for (ConstellationName name : constellation.getNames()) {
+			name.toString();
+		}
 		return new ModelAndView("xmlView", BindingResult.MODEL_KEY_PREFIX
-				+ "constellations", service.findConstellationByCode(code));
+				+ "constellations", constellation);
 	}
 
 	@RequestMapping("/constellations_by_search/{search}")

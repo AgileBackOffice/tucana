@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +24,8 @@ import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Store;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
@@ -31,6 +34,7 @@ import com.thoughtworks.xstream.annotations.XStreamOmitField;
  */
 @Entity
 @Indexed
+@XStreamAlias("constallation")
 public class Constellation implements Serializable{
 	private static final long serialVersionUID = 5723129346307261594L;
 
@@ -58,8 +62,9 @@ public class Constellation implements Serializable{
 	@XStreamOmitField
 	private byte[] starCardData;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@IndexedEmbedded
+	@XStreamImplicit(itemFieldName="names")
 	private List<ConstellationName> names = new ArrayList<ConstellationName>();
 
 	/**
