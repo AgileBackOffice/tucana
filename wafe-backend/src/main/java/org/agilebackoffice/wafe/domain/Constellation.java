@@ -23,6 +23,8 @@ import org.hibernate.search.annotations.Indexed;
 import org.hibernate.search.annotations.IndexedEmbedded;
 import org.hibernate.search.annotations.Store;
 
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 /**
  * @author kamann
  *
@@ -53,6 +55,7 @@ public class Constellation implements Serializable{
 	private int numberOfStarsGreater3M;
 	private int numberOfStarsGreater4M;
 	@Lob
+	@XStreamOmitField
 	private byte[] starCardData;
 	
 	@OneToMany(cascade=CascadeType.ALL)

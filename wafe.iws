@@ -2,83 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2204540f-90cf-47e3-9668-42f0e784af9c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-backend/wafe-backend.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-importer/wafe-importer.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-it/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-it/src/test/groovy/org/agilebackoffice/wafe/domain/ConstellationServiceIntegrationTest.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-it/wafe-it.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe-ui-wicket/wafe-ui-wicket.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wafe.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-backend/src/it/groovy/org/agilebackoffice/wafe/domain/ConstellationServiceIntegrationTest.groovy" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-backend/src/main/java/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-backend/src/main/java/META-INF/persistence.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.classpath" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.gwt/.gwt-log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/.jsdtscope" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/com.google.gdt.eclipse.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/com.google.gwt.eclipse.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.m2e.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.wst.common.component" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.wst.common.project.facet.core.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.wst.jsdt.ui.superType.container" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/.settings/org.eclipse.wst.jsdt.ui.superType.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/META-INF/jdoconfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/client/ConstellationService.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/client/ConstellationServiceAsync.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/client/WafeEntryPoint.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/client/domain/Constellation.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/server/ConstellationServiceImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/java/org/agilebackoffice/wafe/ui/gwt/wafe.gwt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/wafe.launch" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/appengine-web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/META-INF/jdoconfig.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/log4j.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/client/ConstellationService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/client/ConstellationServiceAsync.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/client/WafeEntryPoint$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/client/WafeEntryPoint.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/client/domain/Constellation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/server/ConstellationServiceImpl.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/classes/org/agilebackoffice/wafe/ui/gwt/wafe.gwt.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/deploy/org.agilebackoffice.wafe.ui.gwt.frontend/rpcPolicyManifest/manifest.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/deploy/wafe/rpcPolicyManifest/manifest.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/deploy/wafe/rpcPolicyManifest/manifests/58257454D3708CF389ADFF28266AF7AC.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/deploy/wafe/rpcPolicyManifest/manifests/6F896B74DB3EA786739EE91647E2DD4B.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/deploy/wafe/rpcPolicyManifest/manifests/ADDD4733AE6F197828AD9F9230A5D055.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/appengine-api-1.0-sdk-1.5.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/appengine-api-labs-1.5.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/appengine-jsr107cache-1.5.2.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/datanucleus-appengine-1.0.9.final.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/datanucleus-core-1.1.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/datanucleus-jpa-1.1.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/geronimo-jpa_3.0_spec-1.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/geronimo-jta_1.1_spec-1.1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/jdo2-api-2.3-eb.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/lib/jsr107cache-1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/logging.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/springGwtRemoteServiceServlet-servlet.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/css/wafe.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/images/header.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/2C93B870EB8AB0FF979ECF5103FE9C92.gwt.rpc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/C76FA04DB2C1F673B1FA40171D007B86.gwt.rpc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/F31C56D7FC4C4C57726EA8784AD005CA.gwt.rpc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/clear.cache.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/hosted.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-ui-gwt/war/wafe/wafe.nocache.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wafe-backend/src/it/resources/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/wafe-backend/src/main/resources/META-INF/MANIFEST.MF" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wafe-backend/src/it/resources/db.properties" afterPath="$PROJECT_DIR$/wafe-backend/src/main/resources/db.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/wafe-backend/src/it/resources/org/agilebackoffice/wafe/domain/ConstellationServiceIntegrationTest-context.xml" afterPath="$PROJECT_DIR$/wafe-it/src/test/resources/org/agilebackoffice/wafe/domain/ConstellationServiceIntegrationTest-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wafe-importer/target/classes/db.properties" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wafe-backend/pom.xml" afterPath="$PROJECT_DIR$/wafe-backend/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wafe-ui-wicket/pom.xml" afterPath="$PROJECT_DIR$/wafe-ui-wicket/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wafe-backend/src/main/java/org/agilebackoffice/wafe/domain/Constellation.java" afterPath="$PROJECT_DIR$/wafe-backend/src/main/java/org/agilebackoffice/wafe/domain/Constellation.java" />
     </list>
     <ignored path="wafe.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -140,7 +66,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="44" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+            <state line="35" column="44" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -218,7 +144,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="wafe" />
+          <option name="myItemId" value="WAFE" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -232,7 +158,7 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Backend for WAFE" />
+          <option name="myItemId" value="WAFE Backend" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -801,7 +727,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="44" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+        <state line="35" column="44" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

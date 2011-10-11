@@ -66,6 +66,8 @@
             <element id="library" level="project" name="Maven: org.apache.lucene:lucene-stempel:3.1.0" />
             <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.6.1" />
             <element id="library" level="project" name="Maven: log4j:log4j:1.2.16" />
+            <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.3.1" />
+            <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
             <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.16" />
             <element id="library" level="project" name="Maven: hsqldb:hsqldb:1.8.0.10" />
             <element id="library" level="project" name="Maven: org.apache.wicket:wicket-core:1.5.0" />
@@ -77,8 +79,6 @@
             <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:3.0.6.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-context-support:3.0.6.RELEASE" />
             <element id="library" level="project" name="Maven: org.springframework:spring-oxm:3.0.6.RELEASE" />
-            <element id="library" level="project" name="Maven: com.thoughtworks.xstream:xstream:1.3.1" />
-            <element id="library" level="project" name="Maven: xpp3:xpp3_min:1.1.4c" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.8.5" />
             <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.8.5" />
           </element>
