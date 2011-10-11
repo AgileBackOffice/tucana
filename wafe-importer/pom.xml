@@ -2,6 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>wafe-importer</artifactId>
   
+  <name>WAFE Importer</name>
   <dependencies>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>

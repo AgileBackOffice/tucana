@@ -1,2 +1,0 @@
-serviceClass: org.agilebackoffice.wafe.ui.gwt.client.ConstellationService
-path: F31C56D7FC4C4C57726EA8784AD005CA.gwt.rpc
