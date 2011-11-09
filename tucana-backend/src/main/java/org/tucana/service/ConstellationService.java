@@ -3,13 +3,14 @@
  */
 package org.tucana.service;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.tucana.domain.Constellation;
-import org.tucana.repository.ConstellationRepositoryOld;
-
-import javax.inject.Inject;
-import java.util.List;
+import org.tucana.repository.ConstellationRepository;
 
 /**
  * @author kamann
@@ -20,17 +21,16 @@ import java.util.List;
 public class ConstellationService {
 
 	@Inject
-	private ConstellationRepositoryOld constellationRepository;
-
+	private ConstellationRepository constellationRepository;
 
 	public Constellation persistConstellation(
 			Constellation constellation2Persist) {
-		return constellationRepository
-				.persistConstellation(constellation2Persist);
+		return constellationRepository.save(constellation2Persist);
 	}
-	
-	public void reIndexDatabase(){
-		constellationRepository.reIndexDatabase();
+
+	public void reIndexDatabase() {
+		constellationRepository.reIndexDatabase(constellationRepository
+				.findAll());
 	}
 
 	/*
@@ -40,7 +40,7 @@ public class ConstellationService {
 	 * org.agilebackoffice.wafe.domain.IConstellation#findAllConstellations()
 	 */
 	public List<Constellation> findAllConstellations() {
-		return constellationRepository.findAllConstellations();
+		return constellationRepository.findAll();
 	}
 
 	/*
@@ -51,7 +51,7 @@ public class ConstellationService {
 	 * (java.lang.String)
 	 */
 	public Constellation findConstellationByCode(String code) {
-		return constellationRepository.findConstellationByCode(code);
+		return constellationRepository.findByCode(code);
 	}
 
 	/*
@@ -61,7 +61,6 @@ public class ConstellationService {
 	 * findAllConstellationByCodeOrName(java.lang.String)
 	 */
 	public List<Constellation> findAllConstellationByCodeOrName(String search) {
-		return constellationRepository
-				.findAllConstellationsByFullTextSearch(search);
+		return constellationRepository.findByFulltext(search);
 	}
 }

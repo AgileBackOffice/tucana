@@ -9,9 +9,9 @@ import org.htmlcleaner.HtmlCleaner
 import org.htmlcleaner.SimpleXmlSerializer
 import org.springframework.context.ApplicationContext
 import org.springframework.context.support.ClassPathXmlApplicationContext
-import org.tucana.domain.Constellation;
-import org.tucana.domain.ConstellationName;
-import org.tucana.service.ConstellationService;
+import org.tucana.domain.Constellation
+import org.tucana.domain.ConstellationName
+import org.tucana.service.ConstellationService
 
 /**
  * @author kamann
@@ -21,9 +21,9 @@ class ConstellationImporter {
 	private static def dataWithNamedConstellations
 
 	public static void main(def args){
-		
-//		println getAllNamesForConstellation ("gem")
-//		return
+
+		//		println getAllNamesForConstellation ("gem")
+		//		return
 
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/META-INF/spring/backend-context.xml")
 
@@ -43,8 +43,7 @@ class ConstellationImporter {
 		def table = tables[0]
 		def rows = table.tbody.tr
 
-
-		rows.each{ row ->
+		rows.eachWithIndex { row, c ->
 			if (!row.@style.text()){
 				def cells = row.td
 				Constellation constellation = new Constellation()
@@ -60,19 +59,19 @@ class ConstellationImporter {
 				constellation.numberOfStarsGreater3M = cells[10].text() as int
 				constellation.numberOfStarsGreater4M = cells[11].text() as int
 				constellation.starCardData = new URL(retrieveStarCardRef(cells[12].a.@href.text())).bytes
-				
-				
-				
+
+
+
 				Map names = getAllNamesForConstellation (constellation.code)
 				List cn = []
 				names.each{String key, String value ->
-						cn << new ConstellationName(name: value, langCode: key, code: constellation.code)
+					cn << new ConstellationName(name: value, langCode: key, code: constellation.code)
 				}
 				constellation.names = cn;
-				
-				println constellation
+
+				println c+ " " +constellation
 				service.persistConstellation constellation
-				
+
 			}	else{
 				println "a"
 			}
@@ -80,9 +79,9 @@ class ConstellationImporter {
 
 		println service.findAllConstellations().size()
 		println service.findConstellationByCode("ori").name
-		
-//		Thread.sleep(5000)
-//		((ClassPathXmlApplicationContext)applicationContext).close()
+
+		//		Thread.sleep(5000)
+		//		((ClassPathXmlApplicationContext)applicationContext).close()
 	}
 
 	private static toDouble(String value){
@@ -93,9 +92,9 @@ class ConstellationImporter {
 		def url = "http://de.wikipedia.org$wikipediaRef"
 		def page = getCleanedHtml(url)
 		def pngUrl = page.body.'**'.find{ it.name() == "div" && it.@class.text().contains('fullMedia')}.a.@href.text()
-        pngUrl = pngUrl.startsWith("http:")?: "http:${pngUrl}"
+		pngUrl = pngUrl.startsWith("http:")?: "http:${pngUrl}"
 	}
-	
+
 	private static Map getAllNamesForConstellation(String code){
 		if (!dataWithNamedConstellations){
 			def page = getCleanedHtml("http://de.wikipedia.org/wiki/Liste_der_Sternbilder_in_verschiedenen_Sprachen")
