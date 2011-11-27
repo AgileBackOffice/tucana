@@ -10,7 +10,8 @@
 		<module>tucana-backend</module>
 		<module>tucana-importer</module>
 		<module>tucana-web</module>
-    </modules>
+		<module>tucana-astronomy</module>
+	</modules>
 
 	<url>https://thorque@github.com/thorque/tucana.git</url>
 	<issueManagement>
