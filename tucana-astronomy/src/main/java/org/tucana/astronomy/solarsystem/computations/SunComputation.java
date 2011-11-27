@@ -41,7 +41,7 @@ public class SunComputation {
 	private double hourAngle;
 	private double sunrise;
 	private double sunset;
-	private double sunnoon;
+	private double apex;
 
 	public SunComputation(Date computationDate) {
 		this.computationDate = computationDate;
@@ -144,6 +144,21 @@ public class SunComputation {
 	 */
 	public double getHourAngle() {
 		return hourAngle;
+	}
+
+	public double getRiseTime(double latitude, double longitude) {
+		computeRiseAndSet(latitude, longitude);
+		return sunrise;
+	}
+
+	public double getApexTime(double latitude, double longitude) {
+		computeRiseAndSet(latitude, longitude);
+		return apex;
+	}
+
+	public double getSetTime(double latitude, double longitude) {
+		computeRiseAndSet(latitude, longitude);
+		return sunset;
 	}
 
 	protected OrbitalElements computeOrbitalElements() {
@@ -297,15 +312,15 @@ public class SunComputation {
 		computePosition();
 		computeGreenwichMeridianSiderialTime();
 
-		sunnoon = (position.getRightAscension() - gmst0 * 15 - longitude)
+		apex = (position.getRightAscension() - gmst0 * 15 - longitude)
 				/ AstroContants.DEGREE_PER_HOUR;
 
 		double lha = (sin(-0.833) - sin(latitude)
 				* sin(position.getDeclination()))
 				/ (cos(latitude) * cos(position.getDeclination()));
 
-		sunset = acos(lha) / AstroContants.DEGREE_PER_HOUR + sunnoon;
-		sunrise = sunnoon - acos(lha) / AstroContants.DEGREE_PER_HOUR;
-		return new double[] { sunrise, sunnoon, sunset };
+		sunset = acos(lha) / AstroContants.DEGREE_PER_HOUR + apex;
+		sunrise = apex - acos(lha) / AstroContants.DEGREE_PER_HOUR;
+		return new double[] { sunrise, apex, sunset };
 	}
 }
